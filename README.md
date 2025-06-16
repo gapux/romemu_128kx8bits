@@ -4,7 +4,7 @@ This example uses fast SRAM. So, adding some kind of bus arbiter will make this 
 
 Ingredients
 Paspberry Pi Pico for USB interface and host side data manipulation.
-D-Latches for address line expantion.
-Bus Buffers act as address and control lines multiplexers)
+Try-state D-Latches for hostside address line expantion.
+Bus Buffers and D-Latches act as address and control lines multiplexers)
 Some logic gates
 Reset signal injector
