@@ -4,7 +4,7 @@ A ROM Emulator but writing data from target processor is allowed (imcomplete dua
 This example uses fast SRAM. So, adding some kind of bus arbiter will make this pretty nice dual-port SRAM with several tens of nanoseconds access time.
 
 ### * Main Parts
-    * Static RAM 
+    * Static RAM (128k*8, 12ns~ not tested, address expandable upto 16M*8 by adding bus buffer ICs)
     * Paspberry Pi Pico (USB interface and host side data manipulation)
     * Tri-state bidirectional bus buffers (hostside must be a 5V-tolerant type) 
     * Tri-state D-Latches (hostside address line expanders and switches, TTL or TTL compatible input level required.)
