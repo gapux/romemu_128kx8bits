@@ -1,20 +1,20 @@
-# romemu32p
+# romemu32pin
 ### Abstruct
-A ROM Emulator but writing data from target processor is allowed (imcomplete dual-port RAM style.)
-This example uses fast SRAM. So, adding some kind of bus arbiter will make this pretty nice dual-port SRAM with several tens of nanoseconds access time.
+A ROM Emulator (imcomplete dual-port RAM)
+This example uses fast SRAM. Adding bus arbitrator will make this pretty nice dual-port SRAM with several tens of nanoseconds access time.
 ### * Main Features
-    * 16-line multiplex bus for hostside (AD0-AD7, A8/A16-A15/A23, ALE)
-    * Designed to accept a 16M*8 StaticRAM by adding bus buffer ICs (not tested.)
-    * Paspberry Pi Pico AS USB interface and host side data manipulation
-    * Accepts Intel Hex format data transfer, as well as hexadecimal (0-9,A-F) type-in. 
+    * 16-line multiplex bus for hostside RAM access (AD0-AD7, A8/A16-A15/A23.)
+    * Expandable to accomodate a 16M*8 Static RAM with little modifications to hardware and software (not tested.)
+    * Use of a Paspberry Pi Pico as USB interface and host side data manipulation
+    * Accepts Intel Hex format data transfer, as well as direct type-in of hexadecimal (0-9,A-F) numbers. 
     * Example of using a 128k*8 32-pin SRAM
     * Writes from target side is available (inhibitable by adding a switch.)
    
 ### * Main Parts
-    * Static RAM (128k*8, 12ns. Address expandable upto 16M*8 by adding bus buffer ICs but not tested.)
+    * Static RAM (This example uses HM678127 128k*8, 12ns t_AA.) 
     * Paspberry Pi Pico (USB interface and host side data manipulation)
-    * Tri-state bidirectional bus buffers (hostside must be a 5V-tolerant type) 
-    * Tri-state D-Latches (hostside address line expanders and switches, TTL or TTL compatible input level required.)
-    * Tri-state Unidirectional Bus Buffers (targetside address and control lines switches)
-    * Some logic gates
-    * Adequate length of reset signal output cord
+    * Tri-state bidirectional bus buffers (hostside one must be a 5V-tolerant inout type) 
+    * Tri-state D-Latches i.e. 74HCT573's (as hostside bus demultiplexer and bus switches, TTL or TTL compatible input level required.)
+    * Tri-state Unidirectional Bus Buffers i.e. 74LS244's (targetside address and target/host control lines switches.)
+    * Some logic gates (adjust timings.)
+    * Adequate length of reset signal output cord.
